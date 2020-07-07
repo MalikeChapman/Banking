@@ -18,7 +18,9 @@ public class Customer {
     private String address;
     private String email;
     private String phoneNumber;
-    UUID uniqueID;
+    private String username;
+    private String pin;
+    private UUID uniqueID;
 
     public Customer(){
 

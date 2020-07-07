@@ -18,8 +18,15 @@ public class Bank {
         customerCreation();
 
     }
+    public Bank(String pin) throws FileNotFoundException{
+
+    }
 
     private Customer customerCreation() throws FileNotFoundException {
+        /*
+        * This method is used to create a new instance of customer. The method asks the user to input data one at a time.
+        * The data is checked by methods created in the Verification class. After all data has been accepted, the method creates a new
+        * instance of Customer and writes the data to the file.*/
         String firstName;
         String lastName;
         int year;
@@ -31,12 +38,10 @@ public class Bank {
         String email;
         String phoneNumber;
 
-        Customer newCustomer = new Customer();
         String entered;
         System.out.println("Please enter your first name!");
         entered = infoScanner.nextLine();
         firstName = Verification.verifyName(entered);
-        newCustomer.setFirstName(entered);
 
         System.out.println("Please enter your last name");
         entered = infoScanner.nextLine();
@@ -80,20 +85,45 @@ public class Bank {
             System.out.println(e.getMessage());
         }
 
-        return newCustomer;
+        return customer;
     }
-    public String startUp(){
+    public void startUp(){
+        /*
+        * This method is used when you first enter the bank. It asks whether you are a new customer, a returning customer, or if you have questions.
+        * The method will accept input from the user, then decide the appropriate action. If the user enters invalid input,
+        * the system will shut down.*/
         Scanner scanner = new Scanner(System.in);
         String answer;
         System.out.println("Hello and welcome to Mega Bank! Please look at our menu options that are listed below!");
         System.out.println("If you are a new member, please enter 1 \n" +
                 "If you are a returning member, please enter 2 \n" +
                 "If you don't remember your login info, please enter 3 \n" +
-                "For all other inquires, please enter 8");
+                "For all other inquires, please enter 3");
         switch (scanner.nextInt()){
             case 1:
-                System.out.println("Hello new member");
+                System.out.println("Hello new member. When prompted, please enter your information!");
+                try {
+                    Bank bank = new Bank();
+
+                } catch (IOException e){
+
+                }
+                break;
+            case 2:
+                System.out.println("Hello valued member, please enter your Last name, then your unique pin");
+                try {
+                    Bank bank = new Bank();
+                } catch (FileNotFoundException e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
+            case 3:
+                System.out.println();
+                break;
+            default:
+                System.out.println("Invalid input, shutting down system. Goodbye!!");
+                System.exit(0);
         }
-        return "";
+
     }
 }
