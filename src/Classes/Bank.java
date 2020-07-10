@@ -1,9 +1,7 @@
 package Classes;
 
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,10 +13,19 @@ public class Bank {
 
 
     public Bank() throws FileNotFoundException {
+        /*
+        This method is called when the user is new. The purpose of this constructor is to call the customer creation method
+        which will go through the process of creating a customer.
+         */
         customerCreation();
 
     }
-    public Bank(String pin) throws FileNotFoundException{
+    public Bank(String username, String pin) throws FileNotFoundException{
+        /*
+        The purpose of this constructor is for when the user states they are a returning member.
+        If they are a returning member, they will enter their username and pin which will then
+        be checked against a file to see if it matches a username and pin in the file.
+         */
 
     }
 
@@ -37,6 +44,7 @@ public class Bank {
         String address;
         String email;
         String phoneNumber;
+        String username;
 
         String entered;
         System.out.println("Please enter your first name!");
@@ -61,9 +69,7 @@ public class Bank {
         entered = infoScanner.nextLine();
         day = Verification.verifyDay(year, month, Integer.parseInt(entered));
         dob = LocalDate.of(year, month, day);
-
-       age = Verification.returnAge(dob);
-
+        age = Verification.returnAge(dob);
         address = Verification.verifyAddress();
 
         System.out.println("Please enter your email address");
@@ -75,9 +81,14 @@ public class Bank {
         phoneNumber = Verification.verifyNumber(entered);
 
         Customer customer = new Customer(firstName, lastName, year, month, day, address, email, phoneNumber);
+        customer.setUsername(customer.getEmail());
+        customer.setPin();
         Bank.customerArrayList.add(customer);
 
-        FileIO.writeToFile(customer.toString());
+        FileIO.writeToCustomerFile(customer.toString());
+        username = customer.getUsername();
+        String pin = customer.getPin();
+        FileIO.writeToUsernameAndPinFile(username, pin);
         try{
             FileIO.readFromFile();
 
@@ -87,7 +98,7 @@ public class Bank {
 
         return customer;
     }
-    public void startUp(){
+    public static void startUp(){
         /*
         * This method is used when you first enter the bank. It asks whether you are a new customer, a returning customer, or if you have questions.
         * The method will accept input from the user, then decide the appropriate action. If the user enters invalid input,
@@ -110,9 +121,14 @@ public class Bank {
                 }
                 break;
             case 2:
-                System.out.println("Hello valued member, please enter your Last name, then your unique pin");
+                System.out.println("Hello valued member, please enter your username, then your unique pin");
                 try {
-                    Bank bank = new Bank();
+                    scanner.nextLine();
+                    System.out.println("Please enter your username");
+                    String username = scanner.nextLine();
+                    System.out.println("Please enter your pin");
+                    String pin = scanner.nextLine();
+                    Bank bank = new Bank(username, pin);
                 } catch (FileNotFoundException e) {
                     System.out.println(e.getMessage());
                 }

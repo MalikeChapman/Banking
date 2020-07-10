@@ -1,9 +1,6 @@
 package Classes;
 
 import java.time.LocalDate;
-import java.time.Year;
-import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.UUID;
 
 public class Customer {
@@ -26,12 +23,31 @@ public class Customer {
 
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = Verification.usernameVerification(username);
+    }
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin() {
+        this.pin = Verification.userPinVerification();
+    }
+
     public Customer(String firstName, String lastName, int year, int month, int day, String address, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.fullName = firstName + ", " + lastName;
         this.dateOfBirth = LocalDate.of(year, month, day);
         this.age = calculateAge(dateOfBirth);
+        this.year = year;
+        this.month = month;
+        this.day = day;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -141,9 +157,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", fullName='" + fullName + '\'' +
+                "fullName='" + fullName + '\'' +
                 ", year=" + year +
                 ", month=" + month +
                 ", day=" + day +
@@ -152,6 +166,9 @@ public class Customer {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", username='" + username + '\'' +
+                ", pin='" + pin + '\'' +
+                ", uniqueID=" + uniqueID +
                 '}';
     }
 }

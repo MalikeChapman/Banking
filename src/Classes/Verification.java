@@ -76,6 +76,7 @@ public class Verification {
             for(int i = 0; i < 3; i++){
                 System.out.println("Please enter the month you were born as a number!");
                 month = scanner.nextInt();
+                scanner.nextLine();
                 if (month < 1 || month > 12){
                     continue;
                 }
@@ -93,30 +94,27 @@ public class Verification {
         The month and year is used to check if the year might be a leap year.
         The method uses an instance of the Calendar class to check the months maximum and minimum days.
          */
-        Calendar calendar = Calendar.getInstance();
-        if (day < calendar.getActualMinimum(month - 1) || day > calendar.getActualMaximum(month - 1))
+        LocalDate dob = LocalDate.of(year, month, day);
+        if (day < 1 || day > dob.lengthOfMonth())
         {
-
             Scanner scanner = new Scanner(System.in);
             for (int i = 0; i < 3; i++){
                 System.out.println("Please enter a valid day of the month! You have " + (3 - i + 1) + " chances remaining!");
                 day = scanner.nextInt();
-                if (day < calendar.getActualMinimum(month - 1) || day > calendar.getActualMaximum(month - 1))
+                if (day < 1|| day > dob.lengthOfMonth())
                 {
                     continue;
                 }
-                else{
-                    scanner.close();
+                else
+                    {
                     break;
                 }
-
             }
             return day;
         }
         else
+
             return day;
-
-
     }
     public static int returnAge(LocalDate dob){
         /*
@@ -139,7 +137,7 @@ public class Verification {
         The checker uses a regular expression that splits the entered String into a 3-3-4 phone number format
          */
         if (verifyNumberHelper(number)){
-            number = number.replaceFirst("(\\d{3})(\\d{3})(\\d{4})", " +1 ($2) $3-$4");
+            number = number.replaceFirst("(\\d{3})(\\d{3})(\\d{4})", " +1 ($1) $2-$3");
             return number;
 
         }
@@ -154,7 +152,6 @@ public class Verification {
                     number = test;
                     break;
                 }
-                scanner.close();
             }
             return number;
         }
@@ -164,7 +161,7 @@ public class Verification {
         Helper method for the verify number that checks if the string is of sufficient length and that it contains only numeric values.
         If it doesn't, the method will return false.
          */
-        if (number.matches("\\d") && number.length() == 10){
+        if (number.matches("\\d.*") && number.length() == 10){
             return true;
 
         }
@@ -195,7 +192,6 @@ public class Verification {
         System.out.println("Please enter your zipcode");
         stringBuilder.append(scanner.nextLine());
         String address = stringBuilder.toString();
-        scanner.close();
         return address;
     }
     public static String verifyEmail(String email){
@@ -237,7 +233,7 @@ public class Verification {
         }
         else return false;
     }
-    public static String username(String email){
+    public static String usernameVerification(String email){
         /*
         This method asks a user if they want to make their email their username or if they want to make a completely different/unique username.
         If the user adds invalid input when asked, their email will automatically be assigned as their username.
@@ -289,6 +285,47 @@ public class Verification {
         }
         else
             return false;
+    }
+    public static String userPinVerification(){
+        System.out.println("Please enter a unique six digit pin." +
+                "\n This pin should be comprised of only numbers.");
+        Scanner scanner = new Scanner(System.in);
+        String pin = scanner.nextLine();
+        if (pinVerification(pin))
+        {
+            return pin;
+        }
+        else {
+            System.out.println("Invalid pin entered! Please try again");
+            boolean flag = true;
+            while(flag){
+                System.out.println("Please re-enter a valid pin" +
+                        "\n The pin should be comprised of all digits and the pin should be 6 digits long");
+                pin = scanner.nextLine();
+                if (pinVerification(pin))
+                {
+                    break;
+                }
+                else {
+                    System.out.println("Invalid pin entered!");
+                }
+            }
+            return pin;
+        }
+    }
+    public static boolean pinVerification(String pin){
+        /*
+        This method tests to see if the pin entered is of length 6 and that it contains only digits
+         */
+        if (pin.matches("\\d{6}") && pin.length() == 6)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
 
