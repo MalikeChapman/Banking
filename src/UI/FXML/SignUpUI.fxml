@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.SignUpUIController">
+    <top>
+    <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="250.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Hello and welcome to the Sign up screen!" textAlignment="CENTER">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font></Label>
+    </top>
+    <center>
+        <GridPane fx:id="rootPane" alignment="CENTER" hgap="5" prefHeight="400.0" prefWidth="600.0" vgap="5">
+
+            <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <GridPane.margin>
+                    <Insets />
+                </GridPane.margin></Label>
+            <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="0" >
+                <padding>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </padding>
+                <opaqueInsets>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </opaqueInsets>
+                <GridPane.margin>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </GridPane.margin></TextField>
+            <Label text="last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets />
+                </GridPane.margin></Label>
+            <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <padding>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </padding></TextField>
+            <Label text="Year:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets />
+                </GridPane.margin></Label>
+            <TextField fx:id="yearField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <padding>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </padding></TextField>
+            <Label text="Month:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="monthField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3">
+                <GridPane.margin>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <padding>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </padding></TextField>
+            <Label text="Day:" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                <GridPane.margin>
+                    <Insets />
+                </GridPane.margin></Label>
+            <TextField fx:id="dayField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="4">
+                <GridPane.margin>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <padding>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </padding></TextField>
+            <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                <GridPane.margin>
+                    <Insets />
+                </GridPane.margin></Label>
+            <TextField fx:id="ageField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="5">
+                <GridPane.margin>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <padding>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </padding></TextField>
+            <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="6">
+                <GridPane.margin>
+                    <Insets />
+                </GridPane.margin></Label>
+            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6">
+                <GridPane.margin>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <padding>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </padding></TextField>
+            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="7">
+                <GridPane.margin>
+                    <Insets />
+                </GridPane.margin></Label>
+            <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="7">
+                <GridPane.margin>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <padding>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </padding></TextField>
+            <Label text="Phone Number:" GridPane.columnIndex="0" GridPane.rowIndex="8">
+                <GridPane.margin>
+                    <Insets />
+                </GridPane.margin></Label>
+            <TextField fx:id="phoneNumberField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8">
+                <GridPane.margin>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+                <padding>
+                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                </padding></TextField>
+
+
+
+
+
+
+
+
+
+
+
+            <Button fx:id="Back" onAction="#backToStartScreenUI" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Button fx:id="submit" text="Submit" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+
+        </GridPane>
+
+    </center>
+</BorderPane>

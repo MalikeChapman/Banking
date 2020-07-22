@@ -26,6 +26,9 @@ public class Bank {
         If they are a returning member, they will enter their username and pin which will then
         be checked against a file to see if it matches a username and pin in the file.
          */
+        FileIO.findUsernameFromFileHelper(username, pin);
+        Customer customer = FileIO.customerUsernameVerification(username, pin);
+        menu(customer);
 
     }
 
@@ -128,7 +131,31 @@ public class Bank {
                     String username = scanner.nextLine();
                     System.out.println("Please enter your pin");
                     String pin = scanner.nextLine();
-                    Bank bank = new Bank(username, pin);
+                    if (FileIO.findUsernameFromFileHelper(username, pin)){
+                        Bank bank = new Bank(username, pin);
+                    }
+                    else {
+                        for(int i = 0; i < 3; i++){
+                            System.out.println("Invalid username or password! You have " + (3 - i) + " chances remaining");
+                            System.out.println("Please enter your username");
+                            username = scanner.nextLine();
+                            System.out.println("Please enter your pin");
+                            pin = scanner.nextLine();
+                            if (FileIO.findUsernameFromFileHelper(username, pin)){
+                                break;
+                            }
+                            else {
+                                if (i == 2){
+                                    System.out.println("You have used all your chances, system will now exit!" +
+                                            "\n Goodbye!");
+                                    System.exit(0);
+                                }
+                                continue;
+                            }
+
+                        }
+
+                    }
                 } catch (FileNotFoundException e) {
                     System.out.println(e.getMessage());
                 }
@@ -141,5 +168,9 @@ public class Bank {
                 System.exit(0);
         }
 
+    }
+    public void menu(Customer customer){
+        System.out.println("Login successful! Hello " + customer.getFullName() + ", ");
+        Scanner menuInput = new Scanner(System.in);
     }
 }

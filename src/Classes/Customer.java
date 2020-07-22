@@ -38,11 +38,14 @@ public class Customer {
     public void setPin() {
         this.pin = Verification.userPinVerification();
     }
+    public void setPin(String pin){
+        this.pin = pin;
+    }
 
     public Customer(String firstName, String lastName, int year, int month, int day, String address, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.fullName = firstName + ", " + lastName;
+        this.fullName = firstName + " " + lastName;
         this.dateOfBirth = LocalDate.of(year, month, day);
         this.age = calculateAge(dateOfBirth);
         this.year = year;
@@ -87,6 +90,9 @@ public class Customer {
 
     public void setFullName(String firstName, String lastName) {
         this.fullName = firstName + ", " + lastName;
+    }
+    public void setFullName(String name){
+        this.fullName = name;
     }
 
     public int getYear() {
@@ -156,19 +162,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "fullName='" + fullName + '\'' +
-                ", year=" + year +
-                ", month=" + month +
-                ", day=" + day +
-                ", dateOfBirth=" + dateOfBirth +
-                ", age=" + age +
-                ", address='" + address + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", username='" + username + '\'' +
-                ", pin='" + pin + '\'' +
-                ", uniqueID=" + uniqueID +
-                '}';
+        return fullName + ", " + year + ", " + month + ", " + day + ", " + age + ", " + address + ", " + email + ", " + phoneNumber + ", " + username + ", " + pin;
     }
 }

@@ -1,1 +1,1 @@
-Customer{fullName='asher, chapman', year=1995, month=9, day=29, dateOfBirth=1995-09-29, age=24, address='18717 87th rd, jamaica, ny, 11432', email='ashchapman@gmail.com', phoneNumber=' +1 (718) 454-1265', username='ashchapman@gmail.com', pin='123456', uniqueID=0ca441dd-805e-4f45-8966-d36c73135b45}
+asher chapman, 1995, 9, 29, 24, 18717 87th road, jamaica, ny, 11432, ashchapman330@gmail.com,  +1 (718) 454-1265, ashchapman330, 123456
