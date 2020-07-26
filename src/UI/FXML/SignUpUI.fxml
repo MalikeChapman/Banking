@@ -7,7 +7,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.SignUpUIController">
     <top>
-    <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="250.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Hello and welcome to the Sign up screen!" textAlignment="CENTER">
+    <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="250.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Hello, Welcome to the Sign up screen!" textAlignment="CENTER">
          <font>
             <Font name="Calibri Bold" size="18.0" />
          </font></Label>
@@ -126,7 +126,7 @@
 
 
             <Button fx:id="Back" onAction="#backToStartScreenUI" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <Button fx:id="submit" text="Submit" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+            <Button fx:id="submit" text="Submit" GridPane.columnIndex="0" GridPane.rowIndex="10" onAction="#submitCustomerInfo" />
             <columnConstraints>
                 <ColumnConstraints />
                 <ColumnConstraints />

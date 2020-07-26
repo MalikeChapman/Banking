@@ -3,10 +3,14 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.SignInUIController">
     <top>
-        <Label text="Sign In Menu" />
+        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Sign In Menu" textAlignment="CENTER" textFill="#6c8ebd">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
     </top>
     <center>
         <VBox alignment="CENTER">
