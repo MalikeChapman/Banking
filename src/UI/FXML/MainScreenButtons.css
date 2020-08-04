@@ -1,0 +1,26 @@
+.button{
+    -fx-background-color: aqua;
+    -fx-background-radius: 200px;
+    -fx-border-style: solid;
+    -fx-border-radius: 200px;
+    -fx-border-width: 2;
+    -fx-border-color: black;
+    -fx-animated: true;
+
+}
+.button:hover{
+    -fx-background-color: wheat;
+    -fx-font-style: italic;
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+}
+.root{
+    -fx-background-color: darkgray;
+
+}
+.label{
+    -fx-font-size: 24;
+    -fx-border-color: black;
+    -fx-background-image: url("GTA.png");
+    -fx-alignment: top-center;
+}

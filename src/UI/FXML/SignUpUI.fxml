@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import java.net.URL?>
 <BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.SignUpUIController">
     <top>
     <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="250.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Hello, Welcome to the Sign up screen!" textAlignment="CENTER">
@@ -81,17 +82,17 @@
                 <padding>
                     <Insets bottom="5.0" right="5.0" top="5.0" />
                 </padding></TextField>
-            <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="6">
-                <GridPane.margin>
-                    <Insets />
-                </GridPane.margin></Label>
-            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6">
-                <GridPane.margin>
-                    <Insets bottom="5.0" right="5.0" top="5.0" />
-                </GridPane.margin>
-                <padding>
-                    <Insets bottom="5.0" right="5.0" top="5.0" />
-                </padding></TextField>
+<!--            <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="6">-->
+<!--                <GridPane.margin>-->
+<!--                    <Insets />-->
+<!--                </GridPane.margin></Label>-->
+<!--            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6">-->
+<!--                <GridPane.margin>-->
+<!--                    <Insets bottom="5.0" right="5.0" top="5.0" />-->
+<!--                </GridPane.margin>-->
+<!--                <padding>-->
+<!--                    <Insets bottom="5.0" right="5.0" top="5.0" />-->
+<!--                </padding></TextField>-->
             <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="7">
                 <GridPane.margin>
                     <Insets />
@@ -114,16 +115,6 @@
                 <padding>
                     <Insets bottom="5.0" right="5.0" top="5.0" />
                 </padding></TextField>
-
-
-
-
-
-
-
-
-
-
 
             <Button fx:id="Back" onAction="#backToStartScreenUI" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="10" />
             <Button fx:id="submit" text="Submit" GridPane.columnIndex="0" GridPane.rowIndex="10" onAction="#submitCustomerInfo" />
@@ -150,4 +141,7 @@
         </GridPane>
 
     </center>
+    <stylesheets>
+        <URL value="@SignUpLayoutColor.css"/>
+    </stylesheets>
 </BorderPane>

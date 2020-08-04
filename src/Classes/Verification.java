@@ -25,6 +25,9 @@ public class Verification {
             else
                 break;
         }
+        if (count == 0){
+            return "";
+        }
         return name;
 
     }
@@ -325,6 +328,10 @@ public class Verification {
             return false;
         }
 
+    }
+
+    public static LocalDate localDateCreater(int year, int month, int day){
+        return LocalDate.of(year, month, day);
     }
 
 

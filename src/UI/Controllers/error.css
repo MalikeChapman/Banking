@@ -1,3 +1,5 @@
 .text-input.error{
 -fx-border-color: red;
+    -fx-border-style: dotted;
+    -fx-border-width: 2px;
 }

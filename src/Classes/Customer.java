@@ -47,7 +47,6 @@ public class Customer {
         this.lastName = lastName;
         this.fullName = firstName + " " + lastName;
         this.dateOfBirth = LocalDate.of(year, month, day);
-        this.age = calculateAge(dateOfBirth);
         this.year = year;
         this.month = month;
         this.day = day;
